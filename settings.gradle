@@ -1,0 +1,3 @@
+rootProject.name = "LinkedLineArrowRotRightView"
+include ':app'
+include ':linearrowrotrightview'
