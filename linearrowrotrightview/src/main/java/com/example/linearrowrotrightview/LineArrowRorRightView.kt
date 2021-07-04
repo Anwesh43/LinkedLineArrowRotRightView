@@ -87,7 +87,7 @@ class LineArrowRorRightView(ctx : Context) : View(ctx) {
             }
         }
 
-        fun startUpdating(cb : Function) {
+        fun startUpdating(cb : () -> Unit) {
             if (this.dir == 0f) {
                 this.dir = 1f - 2 * prevScale
                 cb()
