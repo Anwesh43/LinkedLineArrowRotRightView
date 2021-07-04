@@ -17,8 +17,8 @@ val colors : Array<Int> = arrayOf(
 ).map {
     Color.parseColor(it)
 }.toTypedArray()
-val parts : Int = 4
-val scGap : Float = 0.02f / parts
+val parts : Int = 5
+val scGap : Float = 0.05f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
 val arrowSizeFactor : Float = 15.3f
@@ -37,10 +37,11 @@ fun Canvas.drawLineArrowRotRight(scale : Float, w : Float, h : Float, paint : Pa
     val sc2 : Float = scale.divideScale(1, parts)
     val sc3 : Float = scale.divideScale(2, parts)
     val sc4 : Float = scale.divideScale(3, parts)
+    val sc5 : Float = scale.divideScale(4, parts)
     val arrowSize : Float = Math.min(w, h) / arrowSizeFactor
     save()
-    translate(w / 2 + (w / 2 + paint.strokeWidth) * sc4 , h / 2)
-    rotate(deg * sc3)
+    translate(w / 2 + (w / 2 + paint.strokeWidth) * sc5, h / 2)
+    rotate(deg * sc4)
     for (j in 0..1) {
         save()
         translate(0f, size)
@@ -48,6 +49,10 @@ fun Canvas.drawLineArrowRotRight(scale : Float, w : Float, h : Float, paint : Pa
         drawLine(0f, 0f, 0f, -arrowSize * sc1, paint)
         restore()
     }
+    save()
+    translate(0f, -h / 2 - size + (h * 0.5f + size) * sc3)
+    drawLine(0f, 0f, 0f, size, paint)
+    restore()
     restore()
 }
 
