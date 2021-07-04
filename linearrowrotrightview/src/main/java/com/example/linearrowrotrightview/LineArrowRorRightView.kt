@@ -211,4 +211,12 @@ class LineArrowRorRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : LineArrowRorRightView {
+            val view : LineArrowRorRightView = LineArrowRorRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
